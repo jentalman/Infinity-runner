@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
-
+    
+    public event UnityAction CheckBordres;
     private Rigidbody2D _rigidbody2D;
     private PlayerInput _playerInput;
-    private Vector2 movement;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class PlayerMover : MonoBehaviour
     }
     private void Update()
     {
-        _playerInput.PlayerInputMovement(out movement);
+        _playerInput.PlayerInputMovement(out Vector2 movement);
         PlayerMove(movement);
     }
 
@@ -27,5 +28,6 @@ public class PlayerMover : MonoBehaviour
     {
         _rigidbody2D.AddForce(movement * _speed * Time.deltaTime, ForceMode2D.Force);
         _rigidbody2D.velocity = Vector2.zero;
+        CheckBordres?.Invoke();
     }
 }
