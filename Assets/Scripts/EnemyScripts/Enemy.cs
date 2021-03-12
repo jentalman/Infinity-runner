@@ -20,6 +20,7 @@ public class Enemy : Health, IObjectDestroyer
     }
     public void SelfDestroy(GameObject gameObject)
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        transform.position = transform.parent.position;
     }
 }
