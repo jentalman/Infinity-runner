@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(Rigidbody2D),typeof(PlayerInput))]
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _speed;

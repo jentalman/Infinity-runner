@@ -23,9 +23,9 @@ public class CameraBordres : MonoBehaviour
 
     private void Start()
     {
-        Bordres();
+        SetBordres();
     }
-    private void Bordres()
+    private void SetBordres()
     {
         Camera _camera = Camera.main;
         _xMin = _camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + _padding;
