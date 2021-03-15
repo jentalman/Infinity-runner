@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D),typeof(PlayerInput))]
-public class PlayerMover : MonoBehaviour
+public class PlayerMover : Mover
 {
-    [SerializeField] private float _speed;
+    
     
     public event UnityAction CheckBordres;
     private Rigidbody2D _rigidbody2D;
@@ -20,12 +20,12 @@ public class PlayerMover : MonoBehaviour
     private void Update()
     {
         _playerInput.PlayerInputMovement(out Vector2 movement);
-        PlayerMove(movement);
+        Move(movement);
     }
 
-    private void PlayerMove(Vector2 movement)
+    protected override void Move(Vector2 movement)
     {
-        _rigidbody2D.AddForce(movement * _speed * Time.deltaTime, ForceMode2D.Force);
+        _rigidbody2D.AddForce(movement * Speed * Time.deltaTime, ForceMode2D.Force);
         _rigidbody2D.velocity = Vector2.zero;
         CheckBordres?.Invoke();
     }
