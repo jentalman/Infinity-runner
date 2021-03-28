@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftMover : Mover
+public class LeftMover : EnemyMover
 {
 
     private void Update()
     {
-        Move(Vector3.left);
+        Move(Vector2.left);
     }
 
     protected override void Move(Vector2 movement)

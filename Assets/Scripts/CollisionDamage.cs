@@ -8,7 +8,7 @@ public class CollisionDamage : MonoBehaviour
     {
         if (TryGetComponent<Enemy>(out Enemy imEnemy))
         {
-            AttackCollision(collision, imEnemy);
+            TryAttackCollision(collision, imEnemy);
             CheckCollisonForSelfDestory(collision, imEnemy);
                 
         }
@@ -22,7 +22,7 @@ public class CollisionDamage : MonoBehaviour
         }
     }
 
-    private void AttackCollision(Collision2D collision, Enemy enemy)
+    private void TryAttackCollision(Collision2D collision, Enemy enemy)
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {

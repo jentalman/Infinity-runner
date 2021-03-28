@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D),typeof(PlayerInput))]
-public class PlayerMover : Mover
+public class PlayerMover : EnemyMover
 {
     
     

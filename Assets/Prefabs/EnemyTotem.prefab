@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 1746247712058850205}
   - component: {fileID: 1746247712058850207}
   - component: {fileID: 1746247712058850200}
-  - component: {fileID: 1746247712058850201}
-  - component: {fileID: 1746247712058850202}
+  - component: {fileID: 7735596366610674492}
+  - component: {fileID: 7632155730261557559}
+  - component: {fileID: 5075445917017412210}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyTotem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266c81d65708d944e9cfbf17c302dd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1746247712058850201
+--- !u!114 &7735596366610674492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,12 +133,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1746247712058850195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74279fd50b15ae045b7fea927a279f17, type: 3}
+  m_Script: {fileID: 11500000, guid: 6376ea641ff47064194fdb005c5a3b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
+  _health: 30
   _damage: 5
---- !u!114 &1746247712058850202
+--- !u!114 &7632155730261557559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,3 +151,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+--- !u!95 &5075445917017412210
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746247712058850195}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5262d1e17d6b190408a6ee1c5ebd9774, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

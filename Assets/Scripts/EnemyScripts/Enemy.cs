@@ -22,5 +22,6 @@ public class Enemy : Health, IObjectDestroyer
     {
         gameObject.SetActive(false);
         transform.position = transform.parent.position;
+        RestoreFullHealth();
     }
 }

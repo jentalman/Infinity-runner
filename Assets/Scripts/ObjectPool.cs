@@ -10,6 +10,11 @@ public class ObjectPool : MonoBehaviour
 
     private List<GameObject> _pool = new List<GameObject>();
 
+    public List<GameObject> Pool
+    {
+        get { return _pool; }
+    }
+
     protected void Initialize(GameObject prefab)
     {
         for (int i = 0; i < _capacity; i++)
@@ -19,10 +24,27 @@ public class ObjectPool : MonoBehaviour
             _pool.Add(spawned);
         }
     }
-
-    protected bool TryGetObjectFromPool(out GameObject result)
+    protected void Initialize(GameObject[] prefabs)
     {
-        result = _pool.FirstOrDefault(p => p.activeSelf == false);
+        for (int i = 0; i < _capacity; i++)
+        {
+            int randomIndex = Random.Range(0, prefabs.Length);
+            GameObject spawned = Instantiate(prefabs[randomIndex], _container.transform);
+            spawned.SetActive(false);
+            _pool.Add(spawned);
+        }
+    }
+
+    public bool TryGetObjectFromPool(out GameObject result)
+    {
+        //result = _pool.FirstOrDefault(p => p.activeSelf == false);
+        //return result != null;
+        result = _pool.ElementAtOrDefault(Random.Range(0, _pool.Count));
+
+        while (result.activeSelf == true)
+        {
+            result = _pool.ElementAtOrDefault(Random.Range(0, _pool.Count));
+        }
         return result != null;
     }
 }

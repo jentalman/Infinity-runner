@@ -5,12 +5,9 @@ using UnityEngine;
 public class CannonBallSpawner : ObjectPool
 {
     [SerializeField] private GameObject _cannonBallPrefab;
-    [SerializeField] private Transform _cannonBallSpawnPoint;
 
-    private void Start()
+    private void Awake()
     {
         Initialize(_cannonBallPrefab);
     }
-
-    
 }

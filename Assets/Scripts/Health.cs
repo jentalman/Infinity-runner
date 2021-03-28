@@ -14,6 +14,8 @@ public class Health : MonoBehaviour
     private float _maxHealth;
 
     public event UnityAction<GameObject> Died;
+    public event UnityAction ChangeScore;
+    public event UnityAction<float> OnPlayerHealthChangedEvent;
 
     private void Start()
     {
@@ -23,8 +25,12 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _health -= damage;
+        OnPlayerHealthChangedEvent?.Invoke(_health / _maxHealth);
         if (_health <= 0)
+        {
             Died?.Invoke(gameObject);
+            ChangeScore?.Invoke();
+        }
     }
 
     public void TakeHealth(float heal)
@@ -34,5 +40,10 @@ public class Health : MonoBehaviour
         {
             _health = _maxHealth;
         }
+    }
+
+    public void RestoreFullHealth()
+    {
+        _health = _maxHealth;
     }
 }

@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 public class TriggerDamage : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent<Enemy>(out Enemy enemy))
+        if (TryGetComponent<CannonBall>(out CannonBall cannonBall))
         {
-            Debug.Log("HIT");
+            if(collision.TryGetComponent<Enemy>(out Enemy enemy))
+            {
+                enemy.TakeDamage(cannonBall.Damage);
+                cannonBall.SelfDestroy(cannonBall.gameObject);
+            }
         }
     }
 }

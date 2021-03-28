@@ -6,14 +6,15 @@ public class Spawner : ObjectPool
 {
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject[] _enemyTemplate;
     [SerializeField] private float _timeBetweenSpawns;
 
 
     private float _elapsedTime;
 
-    private void Start()
+    private void Awake()
     {
-        Initialize(_enemyPrefab);
+        Initialize(_enemyTemplate);
     }
 
     private void Update()
