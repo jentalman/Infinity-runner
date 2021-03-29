@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Health, IObjectDestroyer
 {
+    [SerializeField] private GameObject _endScreen;
     private void OnEnable()
     {
         Died += SelfDestroy;
@@ -15,6 +16,7 @@ public class Player : Health, IObjectDestroyer
 
     public void SelfDestroy(GameObject gameObject)
     {
-        Debug.Log("Bay bay nigers!");
+        Time.timeScale = 0;
+        _endScreen.SetActive(true);
     }
 }

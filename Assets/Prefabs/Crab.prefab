@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 20
-  _damage: 10
+  _damage: 30
 --- !u!114 &6160639107744502307
 MonoBehaviour:
   m_ObjectHideFlags: 0

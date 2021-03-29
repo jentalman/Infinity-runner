@@ -31,6 +31,5 @@ public class Scoring : MonoBehaviour
     {
         _score++;
         _text.text = $"Score: " + _score;
-        Debug.Log(_score);
     }
 }

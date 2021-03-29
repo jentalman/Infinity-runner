@@ -7,6 +7,7 @@ public class Cannon : MonoBehaviour
     [SerializeField] private CannonBallSpawner _spawner;
     [SerializeField] private Transform _cannonBallSpawnPoint;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioSource _shootSound;
     [SerializeField] private float _force;
     [SerializeField] private float _reloadTime;
 
@@ -33,6 +34,7 @@ public class Cannon : MonoBehaviour
     private void Shoot(GameObject cannonBall, Vector3 SpawnPoint)
     {
         _animator.SetTrigger("Shoot");
+        _shootSound.Play();
         cannonBall.SetActive(true);
         cannonBall.transform.position = SpawnPoint;
         CannonBall ball = cannonBall.GetComponent<CannonBall>();
